@@ -283,6 +283,7 @@ Route::group(['middleware' => ['auth:sanctum', "user.active.check"]], function (
         //summary report
         Route::get('/driver/payouts/report', [DriverReportController::class, 'payouts']);
         Route::get('/driver/earnings/report', [DriverReportController::class, 'earnings']);
+    });
 
     // =============================================
     // RENTAL SERVICE ROUTES
