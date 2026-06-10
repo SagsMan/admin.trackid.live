@@ -298,4 +298,20 @@ Route::group(['middleware' => ['auth:sanctum', "user.active.check"]], function (
     Route::get('rentals/{rentalId}/bookings', [App\Http\Controllers\API\RentalBookingController::class, 'byRental']);
     // =============================================
 
+
+    // =============================================
+    // TALK – MESSAGING ROUTES
+    // =============================================
+    Route::get('talk/conversations', [App\Http\Controllers\API\TalkConversationController::class, 'index']);
+    Route::post('talk/conversations', [App\Http\Controllers\API\TalkConversationController::class, 'store']);
+    Route::get('talk/conversations/{id}', [App\Http\Controllers\API\TalkConversationController::class, 'show']);
+    Route::delete('talk/conversations/{id}', [App\Http\Controllers\API\TalkConversationController::class, 'destroy']);
+    Route::post('talk/conversations/{id}/participants', [App\Http\Controllers\API\TalkConversationController::class, 'addParticipant']);
+    Route::delete('talk/conversations/{id}/participants/{userId}', [App\Http\Controllers\API\TalkConversationController::class, 'removeParticipant']);
+    Route::post('talk/conversations/{id}/read', [App\Http\Controllers\API\TalkConversationController::class, 'markRead']);
+    Route::get('talk/conversations/{conversationId}/messages', [App\Http\Controllers\API\TalkMessageController::class, 'index']);
+    Route::post('talk/conversations/{conversationId}/messages', [App\Http\Controllers\API\TalkMessageController::class, 'store']);
+    Route::delete('talk/messages/{id}', [App\Http\Controllers\API\TalkMessageController::class, 'destroy']);
+    // =============================================
+
 });

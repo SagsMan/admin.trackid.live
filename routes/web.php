@@ -615,4 +615,13 @@ Route::group(['middleware' => ['web']], function () {
         return view('rentals.index');
     })->name('rentals.index');
     // =============================================
+
+    // =============================================
+    // TALK – MESSAGING ADMIN ROUTE
+    // =============================================
+    Route::get('talk', function () {
+        return view('talk.index');
+    })->name('talk.index');
+    // =============================================
+
 });
